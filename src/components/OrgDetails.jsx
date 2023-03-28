@@ -8,7 +8,7 @@ const OrgDetails = ({ selectedOrg }) => {
 
   }, [])
 
-  return (
+  return selectedOrg && (
     <div className="w-3/5 h-80 my-10 overflow-y-scroll flex flex-col items-center">
       <h1>{selectedOrg.name}</h1>
     </div>

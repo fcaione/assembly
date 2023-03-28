@@ -1,17 +1,55 @@
 import axios from "axios"
 import { useState, useEffect } from "react"
 import OrgCard from "./OrgCard"
-import { Link } from "react-router-dom"
+import ReactPaginate from "react-paginate"
 
 const ViewOrgs = ({ orgs, setSelectedOrg, selectedOrg }) => {
+
+  const [currentPage, setCurrentPage] = useState(0)
+	const [currentOrgs, setCurrentOrgs] = useState([])
+  
+	const perPage = 10
+	const offset = currentPage * perPage
+  
+	useEffect(() => {
+		setCurrentOrgs(orgs.slice(offset, offset + perPage))
+    setSelectedOrg(orgs.slice(offset, offset + perPage)[0])
+	},[currentPage, orgs])
+
+
+  const handlePageClick = ({ selected: selectedPage }) => {
+    setCurrentPage(selectedPage)
+  }
+
+  const pageCount = Math.ceil(orgs.length / perPage)
+
 	return (
-		orgs && (
-			<div className="w-2/5 h-80 my-10 overflow-y-scroll">
-				{orgs?.map((org) => (
-					<div key={org.id} className={`hover:bg-sky-400 ${selectedOrg === org && "bg-black"}`} onClick={()=>setSelectedOrg(org)}>
-						<OrgCard {...org} />
-					</div>
-				))}
+		currentOrgs && (
+			<div className="flex flex-col w-2/5 h-96 m-10">
+				<div className="overflow-y-scroll">
+					{currentOrgs?.map((org) => (
+						<div
+							key={org.id}
+							className={`hover:bg-sky-400 ${
+								selectedOrg === org && "bg-purple-400"
+							}`}
+							onClick={() => setSelectedOrg(org)}
+						>
+							<OrgCard {...org} />
+						</div>
+					))}
+				</div>
+        <ReactPaginate
+					previousLabel={"← Previous"}
+					nextLabel={"Next →"}
+					pageCount={pageCount}
+					onPageChange={handlePageClick}
+					containerClassName={"pagination flex flex-row gap-2"}
+					previousLinkClassName={"pagination__link"}
+					nextLinkClassName={"pagination__link"}
+					disabledClassName={"pagination__link--disabled"}
+					activeClassName={"pagination__link--active"}
+				/>
 			</div>
 		)
 	)

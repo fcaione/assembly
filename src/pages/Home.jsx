@@ -11,12 +11,11 @@ const Home = () => {
 
   const [orgs, setOrgs] = useState([])
   const [selectedOrg, setSelectedOrg] = useState({})
-
+  
   const getOrgs = async () => {
     const res = await axios.get("/organizations")
     setOrgs(res.data)
   }
-
 
 	return (
 		<>

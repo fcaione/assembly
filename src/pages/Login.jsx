@@ -22,8 +22,10 @@ const Login = (props) => {
     const payload = await axios.post("/signin", formValues)
     console.log(payload)
     setFormValues({ email: '', password: '' })
-    // props.setUser(payload)
-    // navigate('/')
+    localStorage.setItem("userId", payload.data.user_id)
+    localStorage.setItem("token", payload.data.token)
+    props.setUser(payload.data)
+    navigate('/')
   }
 
   const guestSignIn = async (e) => {

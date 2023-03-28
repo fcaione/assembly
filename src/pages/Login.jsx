@@ -66,6 +66,7 @@ const Login = (props) => {
                         name="email"
                         type="email"
                         autoComplete="email"
+                        value={formValues.email}
                         required
                         onChange={handleChange}
                         className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#ED1C24] sm:text-sm sm:leading-6"
@@ -82,6 +83,7 @@ const Login = (props) => {
                         id="password"
                         name="password"
                         type="password"
+                        value={formValues.password}
                         autoComplete="current-password"
                         required
                         onChange={handleChange}

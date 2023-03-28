@@ -48,7 +48,7 @@ const ViewOrgs = ({ orgs, setSelectedOrg, selectedOrg }) => {
 					previousLinkClassName={"pagination__link"}
 					nextLinkClassName={"pagination__link"}
 					disabledClassName={"pagination__link--disabled"}
-					activeClassName={"pagination__link--active"}
+					activeClassName={"pagination__link--active bg-purple-400"}
 				/>
 			</div>
 		)

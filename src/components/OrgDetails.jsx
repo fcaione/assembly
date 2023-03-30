@@ -26,7 +26,7 @@ const OrgDetails = ({ selectedOrg, user }) => {
 					<h3 className="my-8 font-medium">About the organization:</h3>
 					<p className="ml-5">{selectedOrg.description}</p>
 				</div>
-				{toggleJoining && <JoinOrgForm user={user} selectedOrgId={selectedOrg.id}/>}
+				{toggleJoining && <JoinOrgForm user={user} selectedOrgId={selectedOrg.id} toggleJoining={toggleJoining} setToggleJoining={setToggleJoining} />}
 			</>
 		)
 	)

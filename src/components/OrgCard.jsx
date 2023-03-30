@@ -1,5 +1,4 @@
 const OrgCard = (props) => {
-	console.log(props)
 	return (
 		<div className="my-2 flex-row flex">
 			<div className="w-24 p-4">

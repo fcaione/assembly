@@ -1,26 +1,43 @@
 import { useState } from "react"
+import axios from "axios"
 
 const JoinOrgForm = (props) => {
+	const [formValues, setFormValues] = useState({
+		user_id: props.user.userId,
+		organization_id: props.selectedOrgId,
+		role: "",
+		is_active: "",
+	})
 
-  const [formValues, setFormValues] = useState(
-    {
-      "user_id": "",
-      "organization_id": props.selectedOrgId,
-      "role": "",
-      "is_active": ""
-    })
+	const handleSubmit = async (e) => {
+		e.preventDefault()
+		const res = axios.post("/user/organizations", formValues)
+	}
 
-    console.log(props)
+	const handleChange = (e) => {
+		let updatedValue = e.currentTarget.value
 
-  return (
-    <div>
-      <form>
-        <label htmlFor="">role</label>
-        <input type="text" name="role" />
-        <label htmlFor="">isActive</label>
-        <input type="text" name="is_active" />
-      </form>
-    </div>
-  )
+		if (updatedValue === "true" || updatedValue == "false") {
+			updatedValue = JSON.parse(updatedValue)
+		}
+
+		setFormValues({ ...formValues, [e.target.name]: updatedValue })
+	}
+
+	return (
+		<div>
+			<form onSubmit={handleSubmit}>
+				<label htmlFor="">role</label>
+				<input type="text" name="role" onChange={handleChange} />
+				<label htmlFor="">isActive</label>
+				<select type="text" name="is_active" onChange={handleChange}>
+					<option hidden> Please select a value</option>
+					<option value={true}>Active</option>
+					<option value={false}>Inactive</option>
+				</select>
+				<button>Submit</button>
+			</form>
+		</div>
+	)
 }
 export default JoinOrgForm

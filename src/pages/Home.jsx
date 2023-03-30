@@ -3,7 +3,7 @@ import axios from "axios"
 import ViewOrgs from "../components/ViewOrgs"
 import OrgDetails from "../components/OrgDetails"
 
-const Home = () => {
+const Home = ({ user }) => {
 
   useEffect(() => {
     getOrgs()
@@ -22,7 +22,7 @@ const Home = () => {
 			<div>Welcome to the fun</div>
 			<div className="flex flex-row items-center">
 				<ViewOrgs orgs={orgs} setSelectedOrg={setSelectedOrg} selectedOrg={selectedOrg}/>
-				<OrgDetails selectedOrg={selectedOrg}/>
+				<OrgDetails selectedOrg={selectedOrg} user={user}/>
 			</div>
 		</>
 	)

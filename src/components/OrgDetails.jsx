@@ -1,7 +1,7 @@
 import { useState } from "react"
 import JoinOrgForm from "./JoinOrgForm"
 
-const OrgDetails = ({ selectedOrg }) => {
+const OrgDetails = ({ selectedOrg, user }) => {
 	const [toggleJoining, setToggleJoining] = useState(false)
 
 	return (
@@ -26,7 +26,7 @@ const OrgDetails = ({ selectedOrg }) => {
 					<h3 className="my-8 font-medium">About the organization:</h3>
 					<p className="ml-5">{selectedOrg.description}</p>
 				</div>
-				{toggleJoining && <JoinOrgForm selectedOrgId={selectedOrg.id}/>}
+				{toggleJoining && <JoinOrgForm user={user} selectedOrgId={selectedOrg.id}/>}
 			</>
 		)
 	)

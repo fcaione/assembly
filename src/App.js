@@ -4,16 +4,16 @@ import NavBar from "./components/NavBar"
 import Login from "./pages/Login"
 import SignUp from "./pages/Signup"
 import { useEffect, useState } from "react"
+import ViewUsers from "./pages/ViewUsers"
 
 function App() {
 
   const [user, setUser] = useState({})
 
   useEffect(() => {
-    setUser({
-      userId: localStorage.getItem("userId"),
-      token: localStorage.getItem("token")
-    })
+    setUser(
+      localStorage.getItem("userId"),
+    )
   }, [])
 
 	return (
@@ -24,6 +24,7 @@ function App() {
           <Route path="/" element={<Home user={user}/>} />
           <Route path="/login" element={<Login setUser={setUser}/>} />
           <Route path="/signup" element={<SignUp />} />
+          <Route path="/organization/:orgId" element={<ViewUsers user={user}/>} />
         </Routes>
       </main>
 		</div>

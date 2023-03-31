@@ -27,6 +27,11 @@ const ProfileDetails = ({ user }) => {
     setToggleJoining(true)
   }
 
+  const handleDelete = async (org) => {
+    const res = await axios.delete(`/user/organizations/${org.id}`)
+    getUser()
+    console.log(res)
+  }
 	return (
 		<div>
 			<h3>{profile.name}'s profile</h3>
@@ -42,12 +47,12 @@ const ProfileDetails = ({ user }) => {
 						<h2>{org.role}</h2>
 						{org.is_active && <h2>Currently active</h2>}
 						{!org.is_active && <h2>No longer active</h2>}
-						{user.id === profile.id && <button className="bg-blue-800 text-white rounded-md p-1" >Leave organization</button>}
-						<button className="bg-blue-800 text-white rounded-md p-1 mb-2" onClick={() => handleUpdate(org)}>Update</button>
+						{ user?.id === org.user_id && <button className="bg-blue-800 text-white rounded-md p-1" onClick={() => handleDelete(org)}>Leave organization</button>}
+						{ user?.id === org.user_id && <button className="bg-blue-800 text-white rounded-md p-1 mb-2" onClick={() => handleUpdate(org)}>Update</button>}
 					</div>
 				))}
 			</div>
-      {toggleJoining && <JoinOrgForm setToggleJoining={setToggleJoining} toggleJoining={toggleJoining} user={user} selectedOrgId={selectedOrgId} update={true} selectedUserOrg={selectedUserOrg}/>}
+      {toggleJoining && <JoinOrgForm setToggleJoining={setToggleJoining} toggleJoining={toggleJoining} user={user} selectedOrgId={selectedOrgId} update={true} selectedUserOrg={selectedUserOrg} getUser={getUser}/>}
 		</div>
 	)
 }

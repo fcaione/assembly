@@ -18,7 +18,6 @@ const ViewUsers = ({ user }) => {
 		const res = await axios.get(`/organizations/${orgId}`)
 		setEmployees(res.data.users)
     setSelectedOrg(res.data)
-		console.log(res.data)
 	}
 
 	return (

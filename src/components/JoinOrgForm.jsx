@@ -4,7 +4,7 @@ import Modal from "react-modal"
 
 const JoinOrgForm = (props) => {
 	const [formValues, setFormValues] = useState({
-		user_id: props.user,
+		user_id: props.user.id,
 		organization_id: props.selectedOrgId,
 		role: props.selectedUserOrg?.role || "",
 		is_active: props.selectedUserOrg?.is_active || "",
@@ -16,9 +16,12 @@ const JoinOrgForm = (props) => {
 		e.preventDefault()
     if (props.update) {
       const res = await axios.put(`/user/organizations/${props.selectedUserOrg.id}`, formValues)
+      props.setToggleJoining(false)
+      props.getUser()
       console.log(res)
     } else {
       const res = await axios.post("/user/organizations", formValues)
+      props.setToggleJoining(false)
       console.log(res)
     }
 	}

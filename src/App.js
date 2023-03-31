@@ -26,7 +26,7 @@ function App() {
 
 	return (
 		<div className="min-h-screen">
-      <NavBar user={user}/>
+      <NavBar user={user} setUser={setUser}/>
 			<main className="min-h-screen">
         <Routes>
           <Route path="/" element={<Home user={user}/>} />

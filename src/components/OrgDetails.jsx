@@ -29,14 +29,8 @@ const OrgDetails = ({ selectedOrg, user }) => {
 							(org) => org.organization.id === selectedOrg.id
 						) && (
 							<div>
-								{/* <button
-									className="bg-sky-800 text-white rounded-md p-1"
-									onClick={() => setToggleJoining(true)}
-								>
-									Join Org
-								</button> */}
 								<button
-									className="group relative inline-block overflow-hidden border border-sky-900 px-6 py-1 focus:outline-none focus:ring rounded-lg"
+									className="group relative inline-block overflow-hidden border border-sky-900 px-6 py-1 focus:outline-none focus:ring rounded-lg mt-6"
 									onClick={() => setToggleJoining(true)}
 								>
 									<span className="absolute inset-y-0 left-0 w-[2px] bg-sky-700 transition-all group-hover:w-full group-active:bg-sky-500"></span>
@@ -57,16 +51,18 @@ const OrgDetails = ({ selectedOrg, user }) => {
 					)}
 					<h3 className="my-8 font-medium">About the organization:</h3>
 					<p className="ml-5">{selectedOrg.description}</p>
-					<button
-						className="group relative inline-block overflow-hidden border border-sky-900 px-6 py-1 focus:outline-none focus:ring rounded-lg"
-						onClick={() => navigate(`/organization/${selectedOrg.id}`)}
-					>
-						<span className="absolute inset-y-0 left-0 w-[2px] bg-sky-700 transition-all group-hover:w-full group-active:bg-sky-500"></span>
+					<div className="text-center">
+						<button
+							className="group relative inline-block overflow-hidden border border-sky-900 px-6 py-1 focus:outline-none focus:ring rounded-lg my-6"
+							onClick={() => navigate(`/organization/${selectedOrg.id}`)}
+						>
+							<span className="absolute inset-y-0 left-0 w-[2px] bg-sky-700 transition-all group-hover:w-full group-active:bg-sky-500"></span>
 
-						<span className="relative text-sm font-medium text-sky-700 transition-colors group-hover:text-white">
-							View list of employees
-						</span>
-					</button>
+							<span className="relative text-sm font-medium text-sky-700 transition-colors group-hover:text-white">
+								View Employees
+							</span>
+						</button>
+					</div>
 				</div>
 
 				{toggleJoining && (

@@ -21,7 +21,7 @@ const Home = ({ user }) => {
 	return (
 		<>
 			<Banner />
-			<div className="flex flex-row items-center">
+			<div className="flex flex-row items-center h-[40rem] p-10">
 				<ViewOrgs orgs={orgs} setSelectedOrg={setSelectedOrg} selectedOrg={selectedOrg}/>
 				<OrgDetails selectedOrg={selectedOrg} user={user}/>
 			</div>

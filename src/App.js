@@ -25,9 +25,9 @@ function App() {
   }, [])
 
 	return (
-		<div className="min-h-screen">
+		<div>
       <NavBar user={user} setUser={setUser}/>
-			<main className="min-h-screen">
+			<main>
         <Routes>
           <Route path="/" element={<Home user={user}/>} />
           <Route path="/login" element={<Login setUser={setUser}/>} />

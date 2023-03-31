@@ -45,7 +45,7 @@ const OrgDetails = ({ selectedOrg, user }) => {
 							</button>
 				</div>
         
-				{toggleJoining && <JoinOrgForm user={user} selectedOrgId={selectedOrg.id} toggleJoining={toggleJoining} setToggleJoining={setToggleJoining} />}
+				{toggleJoining && <JoinOrgForm user={user} selectedOrgId={selectedOrg.id} toggleJoining={toggleJoining} setToggleJoining={setToggleJoining} update={false}/>}
 			</>
 		)
 	)

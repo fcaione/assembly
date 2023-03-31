@@ -2,6 +2,7 @@ import { useState, useEffect } from "react"
 import axios from "axios"
 import ViewOrgs from "../components/ViewOrgs"
 import OrgDetails from "../components/OrgDetails"
+import Banner from "../components/Banner"
 
 const Home = ({ user }) => {
 
@@ -19,7 +20,7 @@ const Home = ({ user }) => {
 
 	return (
 		<>
-			<div>Welcome to the fun</div>
+			<Banner />
 			<div className="flex flex-row items-center">
 				<ViewOrgs orgs={orgs} setSelectedOrg={setSelectedOrg} selectedOrg={selectedOrg}/>
 				<OrgDetails selectedOrg={selectedOrg} user={user}/>

@@ -1,14 +1,13 @@
 import { Link, useNavigate } from "react-router-dom"
 
 const NavBar = ({ user, setUser }) => {
-
-  const navigate = useNavigate()
+	const navigate = useNavigate()
 
 	return (
 		<>
 			<header aria-label="Site Header" class="bg-white">
 				<div class="mx-auto flex h-16 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
-					<Link class="block text-teal-600" to="/">
+					<Link class="block text-sky-900" to="/">
 						<span class="sr-only">Home</span>
 						<svg
 							class="h-8"
@@ -38,43 +37,42 @@ const NavBar = ({ user, setUser }) => {
 						</nav>
 
 						<div class="flex items-center gap-4">
-							{ user ?
-              <div class="sm:flex sm:gap-4">
-              <Link
-                class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-                to={`/profile/${user.id}`}
-              >
-                My Profile
-              </Link>
-              <button
-                class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-                onClick={()=>{
-                  localStorage.clear()
-                  setUser(null)
-                  navigate("/")
-                }}
-              >
-                Sign out
-              </button>
-              </div>
-              :
-               <div class="sm:flex sm:gap-4">
-								<Link
-									class="block rounded-md bg-teal-600 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-teal-700"
-									to="/login"
-								>
-									Login
-								</Link>
+							{user ? (
+								<div class="flex flex-row gap-4">
+									<Link
+										class="block rounded-md bg-sky-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-sky-800"
+										to={`/profile/${user.id}`}
+									>
+										My Profile
+									</Link>
+									<button
+										class="block rounded-md bg-sky-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-sky-800"
+										onClick={() => {
+											localStorage.clear()
+											setUser(null)
+											navigate("/")
+										}}
+									>
+										Sign out
+									</button>
+								</div>
+							) : (
+								<div class="sm:flex sm:gap-4">
+									<Link
+										class="block rounded-md bg-sky-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-sky-800"
+										to="/login"
+									>
+										Login
+									</Link>
 
-								<Link
-									class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-teal-600 transition hover:text-teal-600/75 sm:block"
-									to="/signup"
-								>
-									Register
-								</Link>
-							</div>
-              }
-
+									<Link
+										class="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-sky-900 transition hover:text-sky-800/75 sm:block"
+										to="/signup"
+									>
+										Register
+									</Link>
+								</div>
+							)}
 
 							<button class="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
 								<span class="sr-only">Toggle menu</span>

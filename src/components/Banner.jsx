@@ -2,12 +2,12 @@ import { Link } from "react-router-dom";
 
 const Banner = () => {
   return (
-    <div className="relative bg-gray-800">
+    <div className="relative bg-sky-900">
       {/* Background image */}
       <img className="h-96 w-full object-contain" src="https://cdn.pixabay.com/photo/2017/08/05/18/39/office-2585036_1280.png" alt="Banner Background" />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-gray-800 opacity-50"></div>
+      <div className="absolute inset-0 bg-blue-950 opacity-50"></div>
 
       {/* Content */}
       <div className="relative max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">

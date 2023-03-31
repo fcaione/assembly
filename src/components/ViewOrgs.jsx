@@ -29,8 +29,8 @@ const ViewOrgs = ({ orgs, setSelectedOrg, selectedOrg }) => {
 						{currentOrgs?.map((org) => (
 							<div
 								key={org.id}
-								className={`hover:bg-sky-400 border-b ${
-									selectedOrg === org && "bg-purple-400"
+								className={`border-b cursor-pointer ${
+									selectedOrg === org && "bg-sky-600"
 								}`}
 								onClick={() => setSelectedOrg(org)}
 							>

@@ -2,7 +2,7 @@ import { useState } from "react"
 import JoinOrgForm from "./JoinOrgForm"
 import { useNavigate } from "react-router-dom"
 
-const OrgDetails = ({ selectedOrg, user }) => {
+const OrgDetails = ({ selectedOrg, user, getUser }) => {
 	const [toggleJoining, setToggleJoining] = useState(false)
 	const navigate = useNavigate()
 
@@ -72,6 +72,7 @@ const OrgDetails = ({ selectedOrg, user }) => {
 						toggleJoining={toggleJoining}
 						setToggleJoining={setToggleJoining}
 						update={false}
+						getUser={getUser}
 					/>
 				)}
 			</>

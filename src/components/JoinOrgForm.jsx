@@ -22,6 +22,7 @@ const JoinOrgForm = (props) => {
     } else {
       const res = await axios.post("/user/organizations", formValues)
       props.setToggleJoining(false)
+			props.getUser()
       console.log(res)
     }
 	}

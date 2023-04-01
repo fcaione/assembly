@@ -67,7 +67,7 @@ const ProfileDetails = ({ user }) => {
 								</h2>
 							</div>
 
-							<div className="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8">
+							<div className="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8 max h-64 sm:h-[19.8rem] lg:h-[23.8rem] overflow-y-scroll">
 								<h2 className="mt-4 text-xl font-medium sm:text-2xl text-center">
 									{org.organization.name}
 								</h2>
@@ -78,7 +78,7 @@ const ProfileDetails = ({ user }) => {
 
 								<h3 className="mt-4 text-xl font-medium sm:text-2xl">{org.role}</h3>
 
-								<p className="mt-4 text-sm sm:text-base overflow-y-scroll">
+								<p className="mt-4 text-sm sm:text-base">
 									{org.organization.description}
 								</p>
 
@@ -177,7 +177,7 @@ const ProfileDetails = ({ user }) => {
 								</h2>
 							</div>
 
-							<div className="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8">
+							<div className="absolute p-4 opacity-0 transition-opacity group-hover:relative group-hover:opacity-100 sm:p-6 lg:p-8 max h-64 sm:h-[19.8rem] lg:h-[23.8rem] overflow-y-scroll">
 								<h2 className="mt-4 text-xl font-medium sm:text-2xl text-center">
 									{org.name}
 								</h2>
@@ -185,8 +185,6 @@ const ProfileDetails = ({ user }) => {
 								<h2 className="mt-4 text-xl font-light italic sm:text-2xl text-center">
 									{org.location}
 								</h2>
-
-								{/* <h3 className="mt-4 text-xl font-medium sm:text-2xl">{org.role}</h3> */}
 
 								<p className="mt-4 text-sm sm:text-base overflow-y-scroll">
 									{org.description}

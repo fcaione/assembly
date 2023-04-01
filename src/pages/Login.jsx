@@ -24,7 +24,8 @@ const Login = (props) => {
     setFormValues({ email: '', password: '' })
     localStorage.setItem("userId", payload.data.user_id)
     localStorage.setItem("token", payload.data.token)
-    props.setUser(await axios.get(`/users/${localStorage.getItem("userId")}`))
+    const res = await axios.get(`/users/${localStorage.getItem("userId")}`)
+    props.setUser(res.data)
     navigate('/')
   }
 

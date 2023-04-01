@@ -5,9 +5,10 @@ import OrgDetails from "../components/OrgDetails"
 import Banner from "../components/Banner"
 import AddOrgForm from "../components/AddOrgForm"
 
-const Home = ({ user }) => {
+const Home = ({ user, getUser }) => {
 	useEffect(() => {
 		getOrgs()
+		getUser()
 	}, [])
 
 	const [orgs, setOrgs] = useState([])
@@ -29,7 +30,7 @@ const Home = ({ user }) => {
 					setSelectedOrg={setSelectedOrg}
 					selectedOrg={selectedOrg}
 				/>
-				<OrgDetails selectedOrg={selectedOrg} user={user} />
+				<OrgDetails selectedOrg={selectedOrg} user={user} getUser={getUser}/>
 			</div>
 			{toggleAddingOrg && (
 				<AddOrgForm

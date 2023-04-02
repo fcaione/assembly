@@ -23,14 +23,25 @@ const Home = ({ user, getUser }) => {
 	return (
 		<>
 			<Banner />
-      <button onClick={()=>setToggleAddingOrg(true)}>Add Org</button>
+			<div className="flex justify-center mt-8">
+				<button
+					className="group relative inline-block overflow-hidden border border-sky-900 px-6 py-1 focus:outline-none focus:ring rounded-lg"
+					onClick={() => setToggleAddingOrg(true)}
+				>
+					<span className="absolute inset-y-0 left-0 w-[2px] bg-sky-700 transition-all group-hover:w-full group-active:bg-sky-500"></span>
+
+					<span className="relative text-sm font-medium text-sky-900 transition-colors group-hover:text-white">
+						Add Organization
+					</span>
+				</button>
+			</div>
 			<div className="flex flex-row items-center h-[40rem] p-10">
 				<ViewOrgs
 					orgs={orgs}
 					setSelectedOrg={setSelectedOrg}
 					selectedOrg={selectedOrg}
 				/>
-				<OrgDetails selectedOrg={selectedOrg} user={user} getUser={getUser}/>
+				<OrgDetails selectedOrg={selectedOrg} user={user} getUser={getUser} />
 			</div>
 			{toggleAddingOrg && (
 				<AddOrgForm
@@ -39,7 +50,7 @@ const Home = ({ user, getUser }) => {
 					selectedOrg={null}
 					update={false}
 					user={user}
-          getOrgs={getOrgs}
+					getOrgs={getOrgs}
 				/>
 			)}
 		</>

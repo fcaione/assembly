@@ -1,17 +1,24 @@
 const UserCard = (props) => {
 
   return (
-    <div className="bg-white rounded-lg shadow-md p-4 flex items-center">
-        <img src="https://img.freepik.com/free-photo/emotions-people-concept-headshot-serious-looking-handsome-man-with-beard-looking-confident-determined_1258-26730.jpg" alt="" className="rounded-full h-12 w-12 mr-4 object-cover"/>
-      <div>
-        <h2 className="text-base font-semibold">{props.user.name}</h2>
-        <p className="text-gray-500 text-sm">{props.user.email}</p>
-        <p className="text-gray-500 text-sm">{props.role}</p>
-        <p className="text-gray-500 text-sm">{props.is_active}</p>
+    <div className="bg-white rounded-md shadow-lg p-5 flex flex-col items-center w-72 h-72">
+        <img src={props.user.profile_picture} alt="" className="rounded-full h-20 w-20 object-cover"/>
+      <div className="border-t w-full my-4">
+        <h2 className="text-center font-semibold mt-2 text-lg">{props.user.name}</h2>
+        <p className="text-gray-500 text-center">{props.role}</p>
+        <p className="text-gray-500 text-center">{props.is_active}</p>
       </div>
       {props.userState && (
-        <div>
-          <button className="bg-blue-800 text-white rounded-md p-1 mx-5">Message User</button>
+        <div className="h-full flex flex-col justify-center">
+          				<button
+					className="group relative inline-block overflow-hidden border border-sky-900 px-6 py-1 focus:outline-none focus:ring rounded-lg"
+				>
+					<span className="absolute inset-y-0 left-0 w-[2px] bg-sky-700 transition-all group-hover:w-full group-active:bg-sky-500"></span>
+
+					<span className="relative text-sm font-medium text-sky-900 transition-colors group-hover:text-white">
+						Message User
+					</span>
+				</button>
         </div>
 
       )}

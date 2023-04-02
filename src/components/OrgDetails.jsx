@@ -9,7 +9,7 @@ const OrgDetails = ({ selectedOrg, user, getUser }) => {
 	return (
 		selectedOrg && (
 			<>
-				<div className="w-3/5 h-full p-10 overflow-y-scroll flex flex-col border border-slate-300">
+				<div className="w-3/5 h-full p-5 overflow-y-scroll flex flex-col border border-slate-300">
 				{user &&
 						user?.organizations?.some(
 							(org) => org.organization.id === selectedOrg.id
@@ -30,7 +30,7 @@ const OrgDetails = ({ selectedOrg, user, getUser }) => {
 						) && (
 							<div>
 								<button
-									className="group relative inline-block overflow-hidden border border-sky-900 px-6 py-1 focus:outline-none focus:ring rounded-lg mt-6"
+									className="group relative inline-block overflow-hidden border border-sky-900 px-6 py-1 focus:outline-none focus:ring rounded-lg"
 									onClick={() => setToggleJoining(true)}
 								>
 									<span className="absolute inset-y-0 left-0 w-[2px] bg-sky-700 transition-all group-hover:w-full group-active:bg-sky-500"></span>
@@ -42,12 +42,18 @@ const OrgDetails = ({ selectedOrg, user, getUser }) => {
 							</div>
 						)}
 					{!user && (
+						<div>
 						<button
-							className="bg-sky-900 text-white rounded-md p-1"
+							className="group relative inline-block overflow-hidden border border-sky-900 px-6 py-1 focus:outline-none focus:ring rounded-lg"
 							onClick={() => navigate("/login")}
 						>
-							Sign in to join an org
+							<span className="absolute inset-y-0 left-0 w-[2px] bg-sky-700 transition-all group-hover:w-full group-active:bg-sky-500"></span>
+
+							<span className="relative text-sm font-medium text-sky-900 transition-colors group-hover:text-white">
+								Sign in to join
+							</span>
 						</button>
+					</div>
 					)}
 					<h1 className="text-4xl font-semibold text-center my-2">
 						{selectedOrg.name}

@@ -38,17 +38,22 @@ const ViewOrgs = ({ orgs, setSelectedOrg, selectedOrg }) => {
 							</div>
 						))}
 					</div>
-				<ReactPaginate
-					previousLabel={"← Previous"}
-					nextLabel={"Next →"}
-					pageCount={pageCount}
-					onPageChange={handlePageClick}
-					containerClassName={"pagination flex flex-row gap-2 p-2"}
-					previousLinkClassName={"pagination__link"}
-					nextLinkClassName={"pagination__link"}
-					disabledClassName={"pagination__link--disabled"}
-					activeClassName={"pagination__link--active font-bold"}
-				/>
+					<div className="flex flex-col justify-end">
+						<ReactPaginate
+							previousLabel={"Previous"}
+							nextLabel={"Next"}
+							pageCount={pageCount}
+							breakLabel="..."
+							pageRangeDisplayed={2}
+							marginPagesDisplayed={1}
+							onPageChange={handlePageClick}
+							containerClassName={"pagination flex flex-row justify-center gap-2 p-2"}
+							previousLinkClassName={"pagination__link"}
+							nextLinkClassName={"pagination__link"}
+							disabledClassName={"pagination__link--disabled"}
+							activeClassName={"pagination__link--active font-bold"}
+						/>
+					</div>
 				</div>
 			</>
 		)

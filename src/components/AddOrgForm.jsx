@@ -66,7 +66,7 @@ const AddOrgForm = (props) => {
 			style={customStyles}
 		>
 			<div>
-				<form onSubmit={handleSubmit} className="flex flex-col gap-2">
+				<form onSubmit={handleSubmit} className="flex flex-col gap-2 w-[20rem]">
 					<label
 						htmlFor="name"
 						className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-sky-900 focus-within:ring-1 focus-within:ring-sky-900"
@@ -125,12 +125,14 @@ const AddOrgForm = (props) => {
 						htmlFor="icon"
 						className="relative block overflow-hidden rounded-md border border-gray-200 px-3 pt-3 shadow-sm focus-within:border-sky-900 focus-within:ring-1 focus-within:ring-sky-900"
 					>
-						<input
+						<textarea
 							type="text"
 							id="description"
 							name="description"
 							placeholder="Description"
-							className="peer h-8 w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+							className="peer w-full border-none bg-transparent p-0 placeholder-transparent focus:border-transparent focus:outline-none focus:ring-0 sm:text-sm"
+							rows={6}
+							cols={10}
 							onChange={handleChange}
 							value={formValues.description}
 						/>

@@ -1,7 +1,7 @@
 // import { SignInUser } from "../services/Auth"
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
-import axios from "axios"
+import Client from "../services/auth"
 
 
 const Login = (props) => {
@@ -19,12 +19,12 @@ const Login = (props) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-    const payload = await axios.post("/signin", formValues)
+    const payload = await Client.post("/signin", formValues)
     console.log(payload)
     setFormValues({ email: '', password: '' })
     localStorage.setItem("userId", payload.data.user_id)
     localStorage.setItem("token", payload.data.token)
-    const res = await axios.get(`/users/${localStorage.getItem("userId")}`)
+    const res = await Client.get(`/users/${localStorage.getItem("userId")}`)
     props.setUser(res.data)
     navigate('/')
   }

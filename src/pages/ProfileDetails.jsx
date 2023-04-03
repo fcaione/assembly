@@ -1,9 +1,10 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
 import JoinOrgForm from "../components/JoinOrgForm"
 import { IoBusinessSharp } from "react-icons/io5"
 import AddOrgForm from "../components/AddOrgForm"
+import Client from "../services/auth"
+
 
 const ProfileDetails = ({ user }) => {
 	const [profile, setProfile] = useState({})
@@ -20,7 +21,7 @@ const ProfileDetails = ({ user }) => {
 	}, [])
 
 	const getUser = async () => {
-		const res = await axios.get(`/users/${userId}`)
+		const res = await Client.get(`/users/${userId}`)
 		setProfile(res.data)
 		console.log(res.data)
 	}
@@ -32,7 +33,7 @@ const ProfileDetails = ({ user }) => {
 	}
   
 	const handleUserOrgDelete = async (org) => {
-    await axios.delete(`/user/organizations/${org.id}`)
+    await Client.delete(`/user/organizations/${org.id}`)
 		getUser()
 	}
 
@@ -42,7 +43,7 @@ const ProfileDetails = ({ user }) => {
   }
 
   const handleOrgDelete = async (org) => {
-    await axios.delete(`/organizations/${org.id}`)
+    await Client.delete(`/organizations/${org.id}`)
     getUser()
   }
 

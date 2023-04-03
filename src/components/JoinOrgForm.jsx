@@ -1,5 +1,5 @@
 import { useState } from "react"
-import axios from "axios"
+import Client from "../services/auth"
 import Modal from "react-modal"
 
 const JoinOrgForm = (props) => {
@@ -15,12 +15,12 @@ const JoinOrgForm = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
     if (props.update) {
-      const res = await axios.put(`/user/organizations/${props.selectedUserOrg.id}`, formValues)
+      const res = await Client.put(`/user/organizations/${props.selectedUserOrg.id}`, formValues)
       props.setToggleJoining(false)
       props.getUser()
       console.log(res)
     } else {
-      const res = await axios.post("/user/organizations", formValues)
+      const res = await Client.post("/user/organizations", formValues)
       props.setToggleJoining(false)
 			props.getUser()
       console.log(res)

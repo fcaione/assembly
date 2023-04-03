@@ -1,6 +1,6 @@
 import { useState } from "react"
-import axios from "axios"
 import Modal from "react-modal"
+import Client from "../services/auth"
 
 const AddOrgForm = (props) => {
 	const [formValues, setFormValues] = useState({
@@ -17,7 +17,7 @@ const AddOrgForm = (props) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault()
 		if (props.update) {
-			const res = await axios.put(
+			const res = await Client.put(
 				`/organizations/${props.selectedOrg.id}`,
 				formValues
 			)
@@ -25,7 +25,7 @@ const AddOrgForm = (props) => {
 			props.getUser()
 			console.log(res)
 		} else {
-			const res = await axios.post("/organizations", formValues)
+			const res = await Client.post("/organizations", formValues)
 			props.setToggleEditing(false)
       props.getOrgs()
 			console.log(res)

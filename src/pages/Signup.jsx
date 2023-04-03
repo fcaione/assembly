@@ -1,6 +1,7 @@
-import axios from "axios"
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
+import Client from "../services/auth"
+
 
 const SignUp = () => {
 
@@ -18,7 +19,7 @@ const SignUp = () => {
 
 	const handleSubmit = async (e) => {
 		e.preventDefault()
-		await axios.post("/users" , formValues)
+		await Client.post("/users" , formValues)
 		setFormValues({
 			name: "",
 			email: "",

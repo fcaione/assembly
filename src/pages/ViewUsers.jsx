@@ -1,7 +1,8 @@
-import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import UserCard from "../components/UserCard"
+import Client from "../services/auth"
+
 
 const ViewUsers = ({ user }) => {
 	const [employees, setEmployees] = useState([])
@@ -15,7 +16,7 @@ const ViewUsers = ({ user }) => {
 	}, [])
 
 	const getEmployees = async () => {
-		const res = await axios.get(`/organizations/${orgId}`)
+		const res = await Client.get(`/organizations/${orgId}`)
 		setEmployees(res.data.users)
     setSelectedOrg(res.data)
 	}

@@ -1,9 +1,10 @@
 import { useState, useEffect } from "react"
-import axios from "axios"
 import ViewOrgs from "../components/ViewOrgs"
 import OrgDetails from "../components/OrgDetails"
 import Banner from "../components/Banner"
 import AddOrgForm from "../components/AddOrgForm"
+import Client from "../services/auth"
+
 
 const Home = ({ user, getUser }) => {
 	useEffect(() => {
@@ -16,7 +17,7 @@ const Home = ({ user, getUser }) => {
 	const [toggleAddingOrg, setToggleAddingOrg] = useState(false)
 
 	const getOrgs = async () => {
-		const res = await axios.get("/organizations")
+		const res = await Client.get("/organizations")
 		setOrgs(res.data)
 	}
 

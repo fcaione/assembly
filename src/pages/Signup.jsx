@@ -27,7 +27,7 @@ const SignUp = () => {
 			email: "",
 			password: "",
 		})
-		navigate("/signin")
+		navigate("/login")
 	}
 
 	return (

@@ -32,12 +32,12 @@ const SignUp = () => {
 
 	return (
     <>
-		<div className="flex h-screen">
-			<div className="flex flex-1 flex-col justify-center pb-64 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 mt-48">
-				<div className="mx-auto w-full max-w-sm lg:w-96">
-					<div className="flex flex-col justify-center items-center">
+      <div className="flex h-screen">
+        <div className="flex flex-1 flex-col justify-center pb-64 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 mt-64">
+          <div className="mx-auto w-full max-w-sm lg:w-96">
+            <div className="flex flex-col justify-center items-center">
 						<img
-							className="h-60 w-auto"
+							className=" flex h-60 w-auto"
 							src={signup}
 							alt="Your Company"
 						/>
@@ -63,7 +63,7 @@ const SignUp = () => {
 											type="text"
                       value={formValues.name}
 											required
-											className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+											className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
 											onChange={handleChange}
 										/>
 									</div>
@@ -84,7 +84,7 @@ const SignUp = () => {
 											autoComplete="email"
                       value={formValues.email}
 											required
-											className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+											className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
 											onChange={handleChange}
 										/>
 									</div>
@@ -105,7 +105,7 @@ const SignUp = () => {
 											autoComplete="current-password"
                       value={formValues.password}
 											required
-											className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm sm:leading-6"
+											className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-600 sm:text-sm sm:leading-6"
 											onChange={handleChange}
 										/>
 									</div>
@@ -124,7 +124,7 @@ const SignUp = () => {
 									</button>
 								</div>
 							</form>
-							<h3 className="block text-sm font-medium leading-6 text-gray-900 mt-5">Already have an account <Link className="text-sky-900 hover:text-sky-700 hover:underline"to="/signup">Sign up</Link></h3>
+							<h3 className="block text-sm font-medium leading-6 text-gray-900 mt-5">Already have an account <Link className="text-sky-900 hover:text-sky-700 hover:underline"to="/login">Log in</Link></h3>
 						</div>
 					</div>
 				</div>

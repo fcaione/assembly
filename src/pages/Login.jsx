@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import Client from "../services/auth"
+import signup from "../images/signin.png"
+
 
 
 const Login = (props) => {
@@ -40,13 +42,13 @@ const Login = (props) => {
 
   return (
     <>
-      <div className="flex min-h-screen">
-        <div className="flex flex-1 flex-col justify-center pb-64 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+      <div className="flex h-screen">
+        <div className="flex flex-1 flex-col justify-center pb-64 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 mt-48">
           <div className="mx-auto w-full max-w-sm lg:w-96">
-            <div>
+            <div className="flex flex-col justify-center items-center">
               <img
-                className="flex h-90 w-auto "
-                src="https://images.pexels.com/photos/531880/pexels-photo-531880.jpeg?cs=srgb&dl=pexels-pixabay-531880.jpg&fm=jpg"
+                className="flex h-60 w-auto "
+                src={signup}
                 alt="Your Company"
               />
               <h2 className="text-3xl font-bold tracking-tight text-gray-900">Sign in to your account</h2>
@@ -69,9 +71,9 @@ const Login = (props) => {
                         type="email"
                         autoComplete="email"
                         value={formValues.email}
-                        required
+                        requisky
                         onChange={handleChange}
-                        className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#ED1C24] sm:text-sm sm:leading-6"
+                        className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-900 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -87,9 +89,9 @@ const Login = (props) => {
                         type="password"
                         value={formValues.password}
                         autoComplete="current-password"
-                        required
+                        requisky
                         onChange={handleChange}
-                        className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-[#ED1C24] sm:text-sm sm:leading-6"
+                        className="block w-full rounded-md border-0 py-1.5 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-sky-900 sm:text-sm sm:leading-6"
                       />
                     </div>
                   </div>
@@ -105,18 +107,18 @@ const Login = (props) => {
                   <div>
                     <button
                       type="submit"
-                      className="flex w-full justify-center rounded-md bg-[#ED1C24] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ED1C24]"
+                      className="flex w-full justify-center rounded-md bg-sky-900 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900"
                     >
                       Sign in
                     </button>
                   </div>
                 </form>
-                <button 
+                {/* <button 
                 onClick={guestSignIn}
-                className="flex w-full justify-center rounded-md bg-[#000000] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#ED1C24] mt-5">
+                className="flex w-full justify-center rounded-md bg-[#000000] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-slate-800 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-900 mt-5">
                   Guest sign in
-                </button>
-                <h3 className="block text-sm font-medium leading-6 text-gray-900 mt-5">Don't have an account? <Link className="text-[#ED1C24] hover:text-red-500 hover:underline"to="/signup">Create one!</Link></h3>
+                </button> */}
+                <h3 className="block text-sm font-medium leading-6 text-gray-900 mt-5">Don't have an account? <Link className="text-sky-900 hover:text-sky-500 hover:underline"to="/signup">Create one!</Link></h3>
               </div>
             </div>
           </div>
@@ -124,7 +126,7 @@ const Login = (props) => {
         <div className="relative hidden w-0 flex-1 lg:block">
           <img
             className="absolute inset-0 h-full w-full object-cover"
-            src="https://images.unsplash.com/photo-1631631480669-535cc43f2327?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+            src="https://images.pexels.com/photos/3767170/pexels-photo-3767170.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
             alt=""
           />
         </div>

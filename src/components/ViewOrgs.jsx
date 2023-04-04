@@ -1,4 +1,3 @@
-import axios from "axios"
 import { useState, useEffect } from "react"
 import OrgCard from "./OrgCard"
 import ReactPaginate from "react-paginate"

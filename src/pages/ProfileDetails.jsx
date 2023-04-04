@@ -49,7 +49,7 @@ const ProfileDetails = ({ user }) => {
 
 	return (
 		<div>
-			<h3 className="text-center font-bold">{profile.name}'s profile</h3>
+			<h3 className="text-center font-bold text-3xl py-10 capitalize">{profile.name}'s profile</h3>
 			<h3 className="text-center font-bold">Joined Organizations</h3>
 			<div className="flex flex-row flex-wrap items-center justify-center py-4 gap-10">
 				{profile.organizations?.map((org) => (

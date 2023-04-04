@@ -1,7 +1,7 @@
 import Axios from 'axios'
 
 export const BASE_URL = 'https://assembly-api.herokuapp.com'
-// export const BASE_URL = 'http://localhost:3001/api'
+// export const BASE_URL = 'http://127.0.0.1:5000'
 
 const Client = Axios.create({ baseURL: BASE_URL })
 

@@ -1,4 +1,3 @@
-// import { SignInUser } from "../services/Auth"
 import { useState } from "react"
 import { useNavigate, Link } from "react-router-dom"
 import Client from "../services/auth"
@@ -20,11 +19,11 @@ const Login = (props) => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     const payload = await Client.post("/signin", formValues)
-    console.log(payload)
     setFormValues({ email: '', password: '' })
     localStorage.setItem("userId", payload.data.user_id)
     localStorage.setItem("token", payload.data.token)
     const res = await Client.get(`/users/${localStorage.getItem("userId")}`)
+    console.log(res)
     props.setUser(res.data)
     navigate('/')
   }

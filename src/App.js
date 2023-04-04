@@ -6,7 +6,7 @@ import SignUp from "./pages/Signup"
 import { useEffect, useState } from "react"
 import ViewUsers from "./pages/ViewUsers"
 import ProfileDetails from "./pages/ProfileDetails"
-import axios from "axios"
+import Client from "./services/auth"
 
 function App() {
 
@@ -14,7 +14,7 @@ function App() {
 
   const getUser = async () => {
     if (localStorage.getItem("userId")){
-      const res = await axios.get(`/users/${localStorage.getItem("userId")}`)
+      const res = await Client.get(`/users/${localStorage.getItem("userId")}`)
       setUser(res.data)
     }
   }

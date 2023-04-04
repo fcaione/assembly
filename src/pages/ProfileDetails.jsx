@@ -5,7 +5,6 @@ import { IoBusinessSharp } from "react-icons/io5"
 import AddOrgForm from "../components/AddOrgForm"
 import Client from "../services/auth"
 
-
 const ProfileDetails = ({ user }) => {
 	const [profile, setProfile] = useState({})
 	const [toggleJoining, setToggleJoining] = useState(false)
@@ -14,7 +13,7 @@ const ProfileDetails = ({ user }) => {
 	const [selectedUserOrg, setSelectedUserOrg] = useState()
 
 	const { userId } = useParams()
-  const navigate = useNavigate()
+	const navigate = useNavigate()
 
 	useEffect(() => {
 		getUser()
@@ -31,29 +30,41 @@ const ProfileDetails = ({ user }) => {
 		setSelectedUserOrg(org)
 		setToggleJoining(true)
 	}
-  
+
 	const handleUserOrgDelete = async (org) => {
-    await Client.delete(`/user/organizations/${org.id}`)
+		await Client.delete(`/user/organizations/${org.id}`)
 		getUser()
 	}
 
-  const handleOrgUpdate = async (org) => {
-    setSelectedOrgId(org)
-    setToggleEditing(true)
-  }
+	const handleOrgUpdate = async (org) => {
+		setSelectedOrgId(org)
+		setToggleEditing(true)
+	}
 
-  const handleOrgDelete = async (org) => {
-    await Client.delete(`/organizations/${org.id}`)
-    getUser()
-  }
+	const handleOrgDelete = async (org) => {
+		await Client.delete(`/organizations/${org.id}`)
+		getUser()
+	}
 
 	return (
 		<div>
-			<h3 className="text-center font-bold text-3xl py-10"><span className="capitalize">{profile.name}</span>'s profile</h3>
+			<div className="flex justify-center items-center">
+				<img
+					src={profile.profile_picture}
+					alt=""
+					className="rounded-full h-24 w-24 object-cover mt-10"
+				/>
+			</div>
+			<h3 className="text-center font-bold text-3xl pb-10 mt-5">
+				<span className="capitalize">{profile.name}</span>'s profile
+			</h3>
 			<h3 className="text-center font-bold">Joined Organizations</h3>
 			<div className="flex flex-row flex-wrap items-center justify-center py-4 gap-10">
 				{profile.organizations?.map((org) => (
-					<div className="group relative block h-64 sm:h-80 lg:h-96" key={org.id}>
+					<div
+						className="group relative block h-64 sm:h-80 lg:h-96"
+						key={org.id}
+					>
 						<span className="absolute inset-0 border-2 border-dashed border-black"></span>
 
 						<div className="relative flex h-full w-64 lg:w-72 transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
@@ -77,7 +88,9 @@ const ProfileDetails = ({ user }) => {
 									{org.organization.location}
 								</h2>
 
-								<h3 className="mt-4 text-xl font-medium sm:text-2xl">{org.role}</h3>
+								<h3 className="mt-4 text-xl font-medium sm:text-2xl">
+									{org.role}
+								</h3>
 
 								<p className="mt-4 text-sm sm:text-base">
 									{org.organization.description}
@@ -106,8 +119,12 @@ const ProfileDetails = ({ user }) => {
 											Edit
 										</button>
 
-										<button className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative" 	onClick={() => navigate(`/organization/${org.organization.id}`)}>
-
+										<button
+											className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+											onClick={() =>
+												navigate(`/organization/${org.organization.id}`)
+											}
+										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												fill="none"
@@ -157,13 +174,16 @@ const ProfileDetails = ({ user }) => {
 					</div>
 				))}
 			</div>
-      
-                  {/* orgs owned */}
+
+			{/* orgs owned */}
 
 			<h3 className="text-center font-bold">Owned Organizations</h3>
-      <div className="flex flex-row flex-wrap items-center justify-center py-4 gap-10">
+			<div className="flex flex-row flex-wrap items-center justify-center py-4 gap-10">
 				{profile.organizations_owned?.map((org) => (
-					<div className="group relative block h-64 sm:h-80 lg:h-96" key={org.id}>
+					<div
+						className="group relative block h-64 sm:h-80 lg:h-96"
+						key={org.id}
+					>
 						<span className="absolute inset-0 border-2 border-dashed border-black"></span>
 
 						<div className="relative flex h-full w-64 lg:w-72 transform items-end border-2 border-black bg-white transition-transform group-hover:-translate-x-2 group-hover:-translate-y-2">
@@ -214,8 +234,10 @@ const ProfileDetails = ({ user }) => {
 											Edit
 										</button>
 
-										<button className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative" 	onClick={() => navigate(`/organization/${org.id}`)}>
-
+										<button
+											className="inline-flex items-center gap-2 rounded-md px-4 py-2 text-sm text-gray-500 hover:text-gray-700 focus:relative"
+											onClick={() => navigate(`/organization/${org.id}`)}
+										>
 											<svg
 												xmlns="http://www.w3.org/2000/svg"
 												fill="none"
@@ -266,7 +288,7 @@ const ProfileDetails = ({ user }) => {
 				))}
 			</div>
 
-      {/* Joining organization form */}
+			{/* Joining organization form */}
 
 			{toggleJoining && (
 				<JoinOrgForm
@@ -280,11 +302,11 @@ const ProfileDetails = ({ user }) => {
 				/>
 			)}
 
-      {/* Editing organization form */}
+			{/* Editing organization form */}
 
-      {toggleEditing && (
+			{toggleEditing && (
 				<AddOrgForm
-          toggleEditing={toggleEditing}
+					toggleEditing={toggleEditing}
 					setToggleEditing={setToggleEditing}
 					selectedOrg={selectedOrgId}
 					update={true}
@@ -292,9 +314,7 @@ const ProfileDetails = ({ user }) => {
 					getUser={getUser}
 				/>
 			)}
-
 		</div>
-
 	)
 }
 export default ProfileDetails

@@ -7,7 +7,7 @@ const NavBar = ({ user, setUser }) => {
 	return (
 		<>
 			<header aria-label="Site Header" className="bg-white">
-				<div className="mx-auto flex h-16 max-w-screen items-center gap-8 px-4 sm:px-6 lg:px-8 shadow-lg">
+				<div className="mx-auto flex h-16 max-w-screen items-center gap-8 px-4 sm:px-6 lg:px-8 shadow-md">
 					<Link className="block text-sky-900" to="/">
 						<span className="sr-only">Home</span>
 						<div className="w-24 h-24 absolute top-2">

@@ -23,12 +23,12 @@ const NavBar = ({ user, setUser }) => {
 						<nav aria-label="Site Nav" className="hidden md:block">
 							<ul className="flex items-center gap-6 text-sm">
 								<li>
-									<Link
+									{/* <Link
 										className="text-gray-500 transition hover:text-gray-500/75 ml-20"
 										to="/about"
 									>
 										About
-									</Link>
+									</Link> */}
 								</li>
 							</ul>
 						</nav>
@@ -71,7 +71,7 @@ const NavBar = ({ user, setUser }) => {
 								</div>
 							)}
 
-							<button className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
+							{/* <button className="block rounded bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden">
 								<span className="sr-only">Toggle menu</span>
 								<svg
 									xmlns="http://www.w3.org/2000/svg"
@@ -87,7 +87,7 @@ const NavBar = ({ user, setUser }) => {
 										d="M4 6h16M4 12h16M4 18h16"
 									/>
 								</svg>
-							</button>
+							</button> */}
 						</div>
 					</div>
 				</div>

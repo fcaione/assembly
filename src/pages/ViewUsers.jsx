@@ -25,7 +25,7 @@ const ViewUsers = ({ user }) => {
 		employees && (
 			<div>
 				<h2 className="text-center mt-10 font-semibold text-xl">{employees.length} employee(s) registered at {selectedOrg.name}</h2>
-				<div className="divide-y divide-gray-200 m-10">
+				<div className="m-10 flex gap-5">
 					{employees.map((employee) => (
 						<UserCard {...employee} key={employee.user.id} userState={user}/>
 					))}

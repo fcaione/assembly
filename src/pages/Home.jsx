@@ -20,6 +20,7 @@ const Home = ({ user, getUser }) => {
 
 	const getOrgs = async () => {
 		const res = await Client.get("/organizations")
+		res.data.sort((a, b) => a.name.localeCompare(b.name))
 		setOrgs(res.data)
 	}
 
@@ -34,7 +35,7 @@ const Home = ({ user, getUser }) => {
 					>
 						<span className="absolute inset-y-0 left-0 w-[2px] bg-sky-700 transition-all group-hover:w-full group-active:bg-sky-500"></span>
 
-						<span className="relative text-sm font-medium text-sky-900 transition-colors group-hover:text-white">
+						<span className="relative text-md font-medium text-sky-900 transition-colors group-hover:text-white">
 							Add Organization
 						</span>
 					</button>
@@ -45,7 +46,7 @@ const Home = ({ user, getUser }) => {
 					>
 						<span className="absolute inset-y-0 left-0 w-[2px] bg-sky-700 transition-all group-hover:w-full group-active:bg-sky-500"></span>
 
-						<span className="relative text-sm font-medium text-sky-900 transition-colors group-hover:text-white">
+						<span className="relative text-md font-medium text-sky-900 transition-colors group-hover:text-white">
 							Sign in to add org
 						</span>
 					</button>

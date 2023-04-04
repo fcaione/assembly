@@ -54,7 +54,7 @@ const NavBar = ({ user, setUser }) => {
 									</button>
 								</div>
 							) : (
-								<div className="sm:flex sm:gap-4">
+								<div className="flex flex-row gap-4 ml-20">
 									<Link
 										className="block rounded-md bg-sky-900 px-5 py-2.5 text-sm font-medium text-white transition hover:bg-sky-800"
 										to="/login"
@@ -63,7 +63,7 @@ const NavBar = ({ user, setUser }) => {
 									</Link>
 
 									<Link
-										className="hidden rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-sky-900 transition hover:text-sky-800/75 sm:block"
+										className="rounded-md bg-gray-100 px-5 py-2.5 text-sm font-medium text-sky-900 transition hover:text-sky-800/75 sm:block"
 										to="/signup"
 									>
 										Register

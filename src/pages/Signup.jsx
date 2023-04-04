@@ -1,6 +1,8 @@
 import { useState } from "react"
 import { useNavigate } from "react-router-dom"
 import Client from "../services/auth"
+import signup from "../images/signin.png"
+import { Link } from "react-router-dom"
 
 
 const SignUp = () => {
@@ -30,13 +32,13 @@ const SignUp = () => {
 
 	return (
     <>
-		<div className="flex min-h-screen">
-			<div className="flex flex-1 flex-col justify-center pb-64 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24">
+		<div className="flex h-screen">
+			<div className="flex flex-1 flex-col justify-center pb-64 px-4 sm:px-6 lg:flex-none lg:px-20 xl:px-24 mt-48">
 				<div className="mx-auto w-full max-w-sm lg:w-96">
-					<div>
+					<div className="flex flex-col justify-center items-center">
 						<img
-							className="h-90 w-auto"
-							src="https://images.unsplash.com/photo-1631631480669-535cc43f2327?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+							className="h-60 w-auto"
+							src={signup}
 							alt="Your Company"
 						/>
 						<h2 className="text-3xl font-bold tracking-tight text-gray-900">
@@ -116,12 +118,13 @@ const SignUp = () => {
 								<div>
 									<button
 										type="submit"
-										className="flex w-full justify-center rounded-md bg-[#ED1C24] py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+										className="flex w-full justify-center rounded-md bg-sky-900 py-2 px-3 text-sm font-semibold text-white shadow-sm hover:bg-sky-600 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-sky-600"
 									>
 										Sign up
 									</button>
 								</div>
 							</form>
+							<h3 className="block text-sm font-medium leading-6 text-gray-900 mt-5">Already have an account <Link className="text-sky-900 hover:text-sky-700 hover:underline"to="/signup">Sign up</Link></h3>
 						</div>
 					</div>
 				</div>
@@ -129,7 +132,7 @@ const SignUp = () => {
 			<div className="relative hidden w-0 flex-1 lg:block">
 				<img
 					className="absolute inset-0 h-full w-full object-cover"
-					src="https://images.unsplash.com/photo-1631631480669-535cc43f2327?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8YmFja2dyb3VuZCUyMGltYWdlfGVufDB8fDB8fA%3D%3D&w=1000&q=80"
+					src="https://images.pexels.com/photos/6457515/pexels-photo-6457515.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2"
 					alt=""
 				/>
 			</div>

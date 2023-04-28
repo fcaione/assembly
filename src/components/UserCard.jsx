@@ -17,7 +17,7 @@ const UserCard = (props) => {
 					<p className="text-red-500 text-center">Former Employee</p>
 				)}
 			</div>
-			{props?.userState.id !== props.user.id && (
+			{props?.userState?.id !== props?.user?.id && (
 				<div className="h-full flex flex-col justify-center">
 					<button className="group relative inline-block overflow-hidden border border-sky-900 px-6 py-1 focus:outline-none focus:ring rounded-lg">
 						<span className="absolute inset-y-0 left-0 w-[2px] bg-sky-700 transition-all group-hover:w-full group-active:bg-sky-500"></span>
